@@ -1,0 +1,4 @@
+py==1.4.25
+pytest==2.6.3
+selenium==2.43.0
+wsgiref==0.1.2
