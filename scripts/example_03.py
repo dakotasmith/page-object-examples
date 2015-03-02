@@ -3,7 +3,7 @@ sys.path.append('.')
 
 from pago.errors import ExpectedElementError
 from pago.driver import WebDriver
-desired_capabilities = {'browser_name': 'chrome'}
+desired_capabilities = {'browserName': 'chrome'}
 command_executor = "http://127.0.0.1:4444/wd/hub"
 
 from modules.pagesofreps.base import JqueryPagination
