@@ -14,11 +14,9 @@ class WebDriver(webdriver.Remote):
 
     def __init__(self, **kwargs):
         super(WebDriver, self).__init__(**kwargs)
-
+    # 'id=new-todo'
     def find_element_by_locator(self, locator):
         locator_type, locator_value = locator.split('=')
-        # TODO test the timing diff between locator.split() vs locator as a tuple
-        # locator_type, locator_value = locator
         if locator_type == 'class':
             return WebElement(self.find_element_by_class_name(locator_value))
         elif locator_type == 'css':
@@ -40,7 +38,6 @@ class WebDriver(webdriver.Remote):
 
     def find_elements_by_locator(self, locator):
         locator_type, locator_value = locator.split('=')
-        # locator_type, locator_value = locator
         if locator_type == 'class':
             elements = self.find_elements_by_class_name(locator_value)
         elif locator_type == 'css':
@@ -71,11 +68,16 @@ class WebDriver(webdriver.Remote):
             return False
 
     def is_visible(self, locator):
-        return self.find_element_by_locator(locator).is_displayed()
+        if self.is_element_present(locator):
+            if self.find_element_by_locator(locator).is_displayed():
+                return True
+            else:
+                return False
+        else:
+            return False
 
     def is_element_available(self, locator):
-        if self.is_element_present(locator):
-            if self.is_visible(locator):
-                return True
+        if self.is_visible(locator):
+            return True
         else:
             return False

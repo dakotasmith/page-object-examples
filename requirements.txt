@@ -1,4 +1,13 @@
-py==1.4.25
-pytest==2.6.3
-selenium==2.43.0
-wsgiref==0.1.2
+appnope==0.1.0
+decorator==4.0.2
+gnureadline==6.3.3
+ipython==4.0.0
+ipython-genutils==0.1.0
+path.py==8.1.1
+pexpect==3.3
+pickleshare==0.5
+py==1.4.30
+pytest==2.7.3
+selenium==2.47.3
+simplegeneric==0.8.1
+traitlets==4.0.0

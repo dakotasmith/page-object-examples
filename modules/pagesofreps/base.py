@@ -1,4 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from pago.errors import ExpectedElementError
 from pago.page import Page
 
@@ -20,6 +20,9 @@ class JqueryPagination(Page):
             self.wait_for_hidden(locators['loading_indicator'])
         except NoSuchElementException as nsee:
             pass
+        except StaleElementReferenceException as sere:
+            pass
+        self.wait_for_available(locators['search_results'])
         return self
 
     def open(self):

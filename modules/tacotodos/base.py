@@ -16,12 +16,14 @@ locators = {
 
 }
 
-page_url = "http://127.0.0.1:9090/tacotodos/"
+page_url = "http://localhost:9090/tacotodos"
+
 
 class NewTodo(Text):
 
     def __init__(self):
         self.locator = locators['new_todo']
+
 
 class TacoTodoPage(Page):
     new_todo = NewTodo()
@@ -62,6 +64,7 @@ class TacoTodoPage(Page):
 
     def complete_all_todos(self):
         [TacoTodoWrap(self.driver, e).complete() for e in self.find_elements_by_locator(locators['todo'])]
+
 
 class TacoTodoWrap(object):
 

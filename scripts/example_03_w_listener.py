@@ -1,16 +1,21 @@
 import sys
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+
 sys.path.append('.')
 
 from pago.errors import ExpectedElementError
 from pago.driver import WebDriver
+from pago.listener import MaListener
+
 desired_capabilities = {'browserName': 'chrome'}
 command_executor = "http://127.0.0.1:4444/wd/hub"
 
 from modules.pagesofreps.base import JqueryPagination
 
-driver = WebDriver(desired_capabilities=desired_capabilities, command_executor=command_executor)
-
-test_page = JqueryPagination(driver).open()
+remote_webdriver = WebDriver(desired_capabilities=desired_capabilities, command_executor=command_executor)
+driver = EventFiringWebDriver(remote_webdriver, MaListener())
+test_page = JqueryPagination(driver)
+test_page.open()
 
 while True:
     try:

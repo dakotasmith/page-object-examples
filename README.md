@@ -1,4 +1,8 @@
-Code examples for PyTexas2014 talk "Page Objects without a Net"
+Code examples for 
+* PyTexas2014 talk "Page Objects without a Net" 10/05/2014
+* Python Web Developers Houston Meetup 03/02/2015
+* PyTexas2015 talk "Your first week of Python & Selenium, in 3 hours"
+* PyTexas2015 talk "Moderation in Automation & Stupid Selenium Tricks" 
 
 The example sites are easily served locally. Just switch to the sites
 dir and run the following command:

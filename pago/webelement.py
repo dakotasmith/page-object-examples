@@ -1,13 +1,11 @@
 from selenium.webdriver.remote.webelement import WebElement as SeleniumWebElement
 
-
 class WebElement(SeleniumWebElement):
     def __init__(self, element):
         super(WebElement, self).__init__(element.parent, element.id)
 
     def find_element_by_locator(self, locator):
         locator_type, locator_value = locator.split('=')
-        # locator_type, locator_value = locator
         if locator_type == 'class':
             return WebElement(self.find_element_by_class_name(locator_value))
         elif locator_type == 'css':
@@ -29,7 +27,6 @@ class WebElement(SeleniumWebElement):
 
     def find_elements_by_locator(self, locator):
         locator_type, locator_value = locator.split('=')
-        # locator_type, locator_value = locator
         if locator_type == 'class':
             elements = self.find_elements_by_class_name(locator_value)
         elif locator_type == 'css':
